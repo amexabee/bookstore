@@ -105,7 +105,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  git clone https://github.com/amexabee/Math-Magicians.git
+  git clone https://github.com/amexabee/bookstore.git
 ```
 
 ### Install
