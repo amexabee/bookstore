@@ -1,4 +1,4 @@
-const { combineReducers } = Redux;
+import { combineReducers } from 'redux';
 import bookReducer from './books/books';
 import catagoriesReducer from './catagories/categories';
 
@@ -6,7 +6,7 @@ const rootReducer = combineReducers({ bookReducer, catagoriesReducer });
 
 const createStore = (reducer) => {
   let state;
-  let listeners = [];
+  const listeners = [];
 
   const getState = () => state;
 
@@ -16,9 +16,9 @@ const createStore = (reducer) => {
   };
 
   const subscribe = (listener) => {
-    listeners.push[listener];
+    listeners.push(listener);
     return () => {
-      listeners = listeners.filter((l) => l !== listener);
+      listeners.filter((l) => l !== listener);
     };
   };
 

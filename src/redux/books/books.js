@@ -1,6 +1,6 @@
 import * as actions from '../actions';
 
-export default reducer = (state = [], action) => {
+const reducer = (state = [], action) => {
   switch (action.type) {
     case actions.BOOK_ADDED:
       return [
@@ -13,6 +13,8 @@ export default reducer = (state = [], action) => {
       return state;
   }
 };
+
+export default reducer;
 
 export const bookAdded = (id, title, author) => ({
   type: actions.BOOK_ADDED,

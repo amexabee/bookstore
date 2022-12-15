@@ -1,6 +1,6 @@
 import * as actions from '../actions';
 
-export default reducer = (state = [], action) => {
+const reducer = (state = [], action) => {
   switch (action.type) {
     case actions.STATUS_CHECKED:
       return 'Under Construction';
@@ -8,6 +8,8 @@ export default reducer = (state = [], action) => {
       return state;
   }
 };
+
+export default reducer;
 
 export const statusChecked = () => ({
   type: actions.STATUS_CHECKED,
