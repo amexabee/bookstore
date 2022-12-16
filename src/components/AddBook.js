@@ -7,7 +7,6 @@ const AddBook = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  // const [author, setAuthor] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(bookAdded(uuidv4(), title, author));
