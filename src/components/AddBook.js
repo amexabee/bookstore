@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { bookAdded } from '../redux/books/books';
 
 const AddBook = () => {
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(bookAdded(uuidv4(), title, author));
+    setTitle('');
+    setAuthor('');
   };
 
   return (
@@ -15,8 +24,8 @@ const AddBook = () => {
               type="text"
               className="form-control"
               placeholder="Book title"
-              name="title"
-              id="title"
+              value={title}
+              onInput={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className="col-5">
@@ -24,8 +33,8 @@ const AddBook = () => {
               type="text"
               className="form-control"
               placeholder="Author"
-              name="author"
-              id="author"
+              value={author}
+              onInput={(e) => setAuthor(e.target.value)}
             />
           </div>
           <div className="col-2">
