@@ -1,6 +1,25 @@
 import * as actions from '../actions';
 
-const reducer = (state = [], action) => {
+const bookReducer = (
+  state = [
+    {
+      id: 1,
+      title: 'The Hunger Games',
+      author: 'Suzanne Collins',
+    },
+    {
+      id: 2,
+      title: 'Dune',
+      author: 'Frank Herbert',
+    },
+    {
+      id: 3,
+      title: 'Capital in the Twenty-First Century',
+      author: 'Suzanne Collins',
+    },
+  ],
+  action,
+) => {
   switch (action.type) {
     case actions.BOOK_ADDED:
       return [
@@ -14,7 +33,7 @@ const reducer = (state = [], action) => {
   }
 };
 
-export default reducer;
+export default bookReducer;
 
 export const bookAdded = (id, title, author) => ({
   type: actions.BOOK_ADDED,
