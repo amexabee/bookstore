@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { bookAdded } from '../redux/books/books';
+import { useDispatch } from 'react-redux';
+import { posted } from '../redux/books/api';
 
 const AddBook = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategories] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(bookAdded(uuidv4(), title, author));
+    dispatch(
+      posted({
+        title,
+        author,
+        category,
+        item_id: uuidv4(),
+      }),
+    );
     setTitle('');
     setAuthor('');
+    setCategories('');
   };
 
   return (
@@ -19,7 +29,7 @@ const AddBook = () => {
       <h5>ADD NEW BOOK</h5>
       <form onSubmit={handleSubmit}>
         <div className="row">
-          <div className="col-5">
+          <div className="col-4">
             <input
               type="text"
               className="form-control"
@@ -28,7 +38,7 @@ const AddBook = () => {
               onInput={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="col-5">
+          <div className="col-3">
             <input
               type="text"
               className="form-control"
@@ -36,6 +46,23 @@ const AddBook = () => {
               value={author}
               onInput={(e) => setAuthor(e.target.value)}
             />
+          </div>
+          <div className="col-3">
+            <select
+              className="form-select"
+              name="list"
+              onChange={(e) => {
+                setCategories(e.target.value);
+              }}
+              required
+            >
+              <option defaultValue="">Category</option>
+              <option value="Spiritual">Spiritual</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Biography">Biography</option>
+              <option value="History">History</option>
+              <option value="Political">Political</option>
+            </select>
           </div>
           <div className="col-2">
             <button type="submit" className="btn btn-primary">
