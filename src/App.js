@@ -6,7 +6,7 @@ import BookContainer from './components/BookContainer';
 import './App.css';
 
 const App = () => (
-  <div className="container">
+  <div className="frameWidth shadow-lg">
     <NavBar />
     <Routes>
       <Route path="/" element={<BookContainer />} />
