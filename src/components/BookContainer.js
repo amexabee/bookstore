@@ -3,7 +3,7 @@ import ListBooks from './ListBooks';
 import AddBook from './AddBook';
 
 const BookContainer = () => (
-  <div className="container p-5">
+  <div className="p-5 book-cont">
     <ListBooks />
     <AddBook />
   </div>

@@ -3,6 +3,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { posted } from '../redux/books/api';
 
+const colGray = {
+  color: 'gray',
+};
+
 const AddBook = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
@@ -26,7 +30,8 @@ const AddBook = () => {
 
   return (
     <>
-      <h5>ADD NEW BOOK</h5>
+      <hr className="line" />
+      <h5 style={colGray}>ADD NEW BOOK</h5>
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-4">
@@ -57,11 +62,14 @@ const AddBook = () => {
               required
             >
               <option defaultValue="">Category</option>
-              <option value="Spiritual">Spiritual</option>
+              <option value="Science Fiction">Science Fiction</option>
               <option value="Fiction">Fiction</option>
               <option value="Biography">Biography</option>
               <option value="History">History</option>
               <option value="Political">Political</option>
+              <option value="Action">Action</option>
+              <option value="Economy">Economy</option>
+              <option value="Spiritual">Spiritual</option>
             </select>
           </div>
           <div className="col-2">

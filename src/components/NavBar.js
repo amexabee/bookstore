@@ -8,17 +8,27 @@ const NavBar = () => {
     listStyle: 'none',
   };
 
+  const bookstoreStyle = {
+    fontSize: '1.875rem',
+    fontWeight: 700,
+    color: '#0290ff',
+  };
+
   const linkStyle = {
     textDecoration: 'none',
-    paddingLeft: '20px',
-    fontSize: '14px',
+    paddingLeft: '50px',
+    color: '#121212',
+    opacity: 0.5,
+    fontFamily: 'sans-serif',
+    fontSize: '0.813rem',
+    letterSpacing: '1.9px',
   };
 
   return (
     <>
-      <nav className="navbar navbar-light bg-light p-4">
+      <nav className="navbar navbar-light border-bottom bg-white p-4">
         <ul style={ulStyle}>
-          <li style={{ fontSize: '24px' }}>Bookstore CMS</li>
+          <li style={bookstoreStyle}>Bookstore CMS</li>
           <li>
             <Link style={linkStyle} to="/">
               BOOKS
