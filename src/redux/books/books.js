@@ -1,48 +1,34 @@
 import * as actions from '../actions';
 
-const bookReducer = (
-  state = [
-    {
-      id: 1,
-      title: 'The Hunger Games',
-      author: 'Suzanne Collins',
-    },
-    {
-      id: 2,
-      title: 'Dune',
-      author: 'Frank Herbert',
-    },
-    {
-      id: 3,
-      title: 'Capital in the Twenty-First Century',
-      author: 'Suzanne Collins',
-    },
-  ],
-  action,
-) => {
+const booksReducer = (state = [], action) => {
   switch (action.type) {
-    case actions.BOOK_ADDED:
-      return [
-        ...state,
-        { id: action.id, title: action.title, author: action.author },
-      ];
-    case actions.BOOK_REMOVED:
-      return state.filter((book) => book.id !== action.id);
+    case actions.BOOK_ADDED_FULFILLED:
+      return [...state, action.meta.arg];
+    case actions.BOOK_REMOVED_FULFILLED:
+      return state.filter((book) => book.item_id !== action.meta.arg);
+    case actions.GET_BOOK_FULFILLED:
+      return Object.keys(action.payload).map((key) => {
+        const { title, author, category } = action.payload[key][0];
+        return {
+          item_id: key,
+          title,
+          author,
+          category,
+        };
+      });
     default:
       return state;
   }
 };
 
-export default bookReducer;
+export default booksReducer;
 
-export const bookAdded = (id, title, author) => ({
+export const addBook = (book) => ({
   type: actions.BOOK_ADDED,
-  id,
-  title,
-  author,
+  book,
 });
 
-export const bookRemoved = (id) => ({
+export const removeBook = (book) => ({
   type: actions.BOOK_REMOVED,
-  id,
+  book,
 });

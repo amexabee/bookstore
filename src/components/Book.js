@@ -1,19 +1,23 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable camelcase */
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { bookRemoved } from '../redux/books/books';
+import { deleted } from '../redux/books/api';
 
-const Book = (props) => {
+const Book = ({ BOOK }) => {
   const dispatch = useDispatch();
-  const { id, title, author } = props;
+  const {
+    title, author, item_id, category,
+  } = BOOK;
 
   const handleDelete = () => {
-    dispatch(bookRemoved(id));
+    dispatch(deleted(item_id));
   };
 
   return (
     <div className="bg-light mb-5">
       <div className="p-3">
+        <h6>{category}</h6>
         <h4>{title}</h4>
         <h6>{author}</h6>
       </div>
