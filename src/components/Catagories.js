@@ -13,7 +13,7 @@ const Catagories = () => {
   return (
     <>
       <div>
-        <h2 style={{ textAlign: 'center', paddingTop: '20px' }}>{response}</h2>
+        <h2>{response}</h2>
       </div>
       <button
         onClick={() => handleClick()}

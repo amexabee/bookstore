@@ -4,7 +4,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleted } from '../redux/books/api';
 
-const myStyle = { fontSize: '0.875rem', fontWeight: 300, color: '#4386bf' };
+const colBlue = { fontSize: '0.875rem', fontWeight: 300, color: '#4386bf' };
+const colGray = { color: 'lightgray' };
+const chapterStyle = { color: 'lightgray', fontSize: '14px' };
 
 const Book = ({ BOOK }) => {
   const dispatch = useDispatch();
@@ -20,18 +22,18 @@ const Book = ({ BOOK }) => {
     <div className="bg-white mb-3 py-4 px-5 border d-flex justify-content-between">
       <div className="d-flex flex-column align-content-center">
         <div className="mb-2">
-          <h6 className="m-0 p-0" style={{ color: 'lightgray' }}>
+          <h6 className="m-0 p-0" style={colGray}>
             {category}
           </h6>
           <h4 className="m-0 p-0">{title}</h4>
-          <h6 className="mt-1 p-0" style={myStyle}>
+          <h6 className="mt-1 p-0" style={colBlue}>
             {author}
           </h6>
         </div>
 
-        <div style={{ color: 'lightgray' }}>
+        <div style={colGray}>
           <button
-            style={myStyle}
+            style={colBlue}
             type="button"
             className="btn ps-0 shadow-none"
           >
@@ -41,13 +43,13 @@ const Book = ({ BOOK }) => {
           <button
             onClick={() => handleDelete()}
             type="button"
-            style={myStyle}
+            style={colBlue}
             className="btn shadow-none"
           >
             Remove
           </button>
           |
-          <button style={myStyle} type="button" className="btn shadow-none">
+          <button style={colBlue} type="button" className="btn shadow-none">
             Edit
           </button>
         </div>
@@ -56,12 +58,12 @@ const Book = ({ BOOK }) => {
         <div className="circular-progress" />
         <div className="mx-3">
           <h3 className="my-0">64%</h3>
-          <h6 style={{ color: 'lightgray' }}>Completed</h6>
+          <h6 style={colGray}>Completed</h6>
         </div>
       </div>
       <div>
         <div>
-          <p className="mb-0" style={{ color: 'lightgray', fontSize: '14px' }}>
+          <p className="mb-0" style={chapterStyle}>
             CURRENT CHAPTER
           </p>
           <p className="mt-0">Chapter 17</p>

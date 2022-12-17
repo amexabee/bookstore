@@ -3,6 +3,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { posted } from '../redux/books/api';
 
+const colGray = {
+  color: 'gray',
+};
+
 const AddBook = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
@@ -27,7 +31,7 @@ const AddBook = () => {
   return (
     <>
       <hr className="line" />
-      <h5 style={{ color: 'gray' }}>ADD NEW BOOK</h5>
+      <h5 style={colGray}>ADD NEW BOOK</h5>
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-4">
