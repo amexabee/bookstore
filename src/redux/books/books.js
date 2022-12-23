@@ -23,12 +23,12 @@ const booksReducer = (state = [], action) => {
 
 export default booksReducer;
 
-export const addBook = (book) => ({
-  type: actions.BOOK_ADDED,
-  book,
-});
+// export const addBook = (book) => ({
+//   type: actions.BOOK_ADDED,
+//   book,
+// });
 
-export const removeBook = (book) => ({
-  type: actions.BOOK_REMOVED,
-  book,
-});
+// export const removeBook = (book) => ({
+//   type: actions.BOOK_REMOVED,
+//   book,
+// });
